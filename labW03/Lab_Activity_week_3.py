@@ -45,9 +45,12 @@ def update_book(lib,title,newDetail):
             datetime_format = "%Y-%m-%d %H:%M:%S"
             current_datetime = datetime.datetime.now()
             formatted_datetime = current_datetime.strftime(datetime_format)
-            lib[count]=newDetail.update({"date":formatted_datetime})
+            newDetail.update({"date":formatted_datetime})
+            lib[count]=newDetail
+            print(f"The book {title} has been updated.")
+            break
         count+=1
-
+    print(f"The book {title} has not been found.")
 
 def main():
     lib=initialize_library()
@@ -72,9 +75,12 @@ def main():
             
         elif userChoice == "3":
             title = input("Enter book title: ")
-            res = find_book(lib,title) 
-            for item in res:
-                print(item)
+            res = find_book(lib,title)
+            if res:
+                for item in res:
+                    print(item)
+            else:
+                print("Book not found.")
             print("--*--*--*--*--*--*--")
 
         elif    userChoice == "4":
@@ -84,7 +90,6 @@ def main():
             genr = input("Enter book genre: ")
             newDetail={"title":title, "author":auth, "year":year, "genre":genr}
             update_book(lib,title,newDetail)
-            print(f"The book {title} has been updated.")
             print("--*--*--*--*--*--*--")
 
         elif userChoice == "5":
