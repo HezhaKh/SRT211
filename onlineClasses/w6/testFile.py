@@ -1,4 +1,4 @@
-from flask  import Flask
+from flask  import Flask, request, jsonify
 
 app=Flask(__name__)
 
@@ -8,7 +8,9 @@ def gCont():
 
 @app.route("/", methods=["POST"])
 def pCont():
-    return "This is POST contect"
+    data=request.json
+    print(data)
+    return jsonify({"message":"Data Received"})
 
 @app.route("/", methods=["PUT"])
 def puCont():
