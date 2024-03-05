@@ -3,11 +3,11 @@ This repo is designed for my Secure Scripting course submission.
 Be advised, It may go private one day!
 
 
-### labW03
+### ./labW03
 Python3
 
-### labW04
+### ./labW04
 HTML
 
-### midterm
+### ./midterm
 Midterm Python script
